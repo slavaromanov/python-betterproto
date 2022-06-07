@@ -420,7 +420,7 @@ def generate_code(request, response):
         # Fill response
         f = response.file.add()
         # print(filename, file=sys.stderr)
-        f.name = filename.replace(".", os.path.sep) + "_pb2.py"
+        f.name = filename.replace(".", os.path.sep) + ".py"
 
         # Render and then format the output file.
         f.content = black.format_str(
