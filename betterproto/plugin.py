@@ -187,8 +187,8 @@ def generate_code(request, response):
 
     output_map = {}
     for proto_file in request.proto_file:
-        out = proto_file.package
-        if out == "google.protobuf":
+        out = proto_file.name.replace('.proto', '')
+        if proto_file.package == "google.protobuf":
             continue
 
         if not out:
