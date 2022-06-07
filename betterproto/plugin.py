@@ -65,6 +65,10 @@ def get_ref_type(
             wrapped_type = type(wrapper_class().value)
             return f"Optional[{wrapped_type.__name__}]"
 
+        if type_name == "google.protobuf.Struct":
+            imports.add("from google.protobuf.struct_pb2 import Struct")
+            return "Struct"
+
         if type_name == "google.protobuf.Duration":
             return "timedelta"
 
