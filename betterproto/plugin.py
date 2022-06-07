@@ -195,7 +195,7 @@ def generate_code(request, response):
 
     output_map = {}
     for proto_file in request.proto_file:
-        out = proto_file.name.replace('.proto', '') + "_pb2"
+        out = proto_file.name.replace('.proto', '')
         if proto_file.package == "google.protobuf":
             continue
 
@@ -420,7 +420,7 @@ def generate_code(request, response):
         # Fill response
         f = response.file.add()
         # print(filename, file=sys.stderr)
-        f.name = filename.replace(".", os.path.sep) + ".py"
+        f.name = filename.replace(".", os.path.sep) + "_pb2.py"
 
         # Render and then format the output file.
         f.content = black.format_str(
